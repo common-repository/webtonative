@@ -1,0 +1,28 @@
+:root {
+	--enable-important-utilities: false;
+}
+  
+.webtonative-admin .form-check {
+	background-color: #f4f4f4;
+	padding: 0.25rem 0.5rem;
+}
+.webtonative-admin .form-check .form-check-input{
+	background-repeat: no-repeat
+}
+.webtonative-admin .form-check input[type=checkbox]:checked::before{
+	content: none;
+}
+.webtonative-admin .form-check .form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%)
+}
+  
+.webtonative-admin a {
+	text-decoration: none;
+}
+  
+.webtonative-admin .container {
+	margin: 0 auto;
+	max-width: 500px;
+}

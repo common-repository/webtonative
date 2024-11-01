@@ -1,0 +1,168 @@
+<?php
+
+if (!defined('ABSPATH')) {
+    exit();
+} // Exit if accessed directly
+
+require_once __DIR__ . '/../../common/social-login/rest.php';
+
+class WebtonativeSocialLogin
+{
+    public function __construct()
+    {
+        add_submenu_page('webtonative-settings', 'Social Login Settings', 'Social Login', 'manage_options', 'webtonative-settings-social', array($this, 'html'));
+        add_action('admin_init', array($this, 'settings'));
+    }
+
+    public function settings()
+    {
+        $this->facebook();
+        $this->google();
+    }
+
+    public function facebook()
+    {
+        add_settings_section('webtonative_facebook_login_section', 'Facebook Login', null, 'webtonative-settings-social');
+
+        add_settings_field('wton_facebook_login_enabled', 'Enable Facebook Login', array($this, 'checkbox'), 'webtonative-settings-social', 'webtonative_facebook_login_section', array(
+            'name' => 'wton_facebook_login_enabled',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_facebook_login_enabled', array('type' => 'boolean', 'default' => false));
+
+        add_settings_field('wton_facebook_login_app_id', 'App Id', array($this, 'text'), 'webtonative-settings-social', 'webtonative_facebook_login_section', array(
+            'name' => 'wton_facebook_login_app_id',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_facebook_login_app_id', array(
+            'type' => 'string',
+            'default' => '',
+            'sanitize_text_field' => 'sanitize_text_field',
+        ));
+
+        add_settings_field('wton_facebook_login_app_secret', 'App Secret', array($this, 'text'), 'webtonative-settings-social', 'webtonative_facebook_login_section', array(
+            'name' => 'wton_facebook_login_app_secret',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_facebook_login_app_secret', array(
+            'type' => 'string',
+            'default' => '',
+            'sanitize_text_field' => 'sanitize_text_field',
+        ));
+    }
+
+    public function google()
+    {
+        add_settings_section('webtonative_google_login_section', 'Google Login', null, 'webtonative-settings-social');
+
+        add_settings_field('wton_google_login_enabled', 'Enable Google Login', array($this, 'checkbox'), 'webtonative-settings-social', 'webtonative_google_login_section', array(
+            'name' => 'wton_google_login_enabled',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_google_login_enabled', array('type' => 'boolean', 'default' => false));
+
+        add_settings_field('wton_google_login_client_id', 'Client Id', array($this, 'text'), 'webtonative-settings-social', 'webtonative_google_login_section', array(
+            'name' => 'wton_google_login_client_id',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_google_login_client_id', array(
+            'type' => 'string',
+            'default' => '',
+            'sanitize_text_field' => 'sanitize_text_field',
+        ));
+
+        add_settings_field('wton_google_login_client_secret', 'Client Secret', array($this, 'text'), 'webtonative-settings-social', 'webtonative_google_login_section', array(
+            'name' => 'wton_google_login_client_secret',
+            'description' => null,
+        ));
+        register_setting('webtonative_social_login_option_grp', 'wton_google_login_client_secret', array(
+            'type' => 'string',
+            'default' => '',
+            'sanitize_text_field' => 'sanitize_text_field',
+        ));
+    }
+
+    public function checkbox($args)
+    {
+        $name = $args['name'];
+        $description = isset($args['description']) ? $args['description'] : null;
+        ?>
+        <input type="checkbox" name="<?php echo $name; ?>" value="1" <?php checked(get_option($name, false), true); ?> />
+        <?php if ($description) : ?>
+            <p class="description">
+                <?php echo $description; ?>
+            </p>
+        <?php endif; ?>
+    <?php
+    }
+
+    public function text($args)
+    {
+        $name = $args['name'];
+        $description = isset($args['description']) ? $args['description'] : null;
+        ?>
+        <input type="text" name="<?php echo $name; ?>" value="<?php echo esc_attr(get_option($name, '')); ?>" />
+        <?php if ($description) : ?>
+            <p class="description">
+                <?php echo $description; ?>
+            </p>
+        <?php endif; ?>
+    <?php
+    }
+
+    public function html()
+    {
+    ?>
+        <div class="wrap">
+            <h1>
+                Social Login Settings
+            </h1>
+            <form action="options.php" method="post">
+                <?php
+                settings_fields('webtonative_social_login_option_grp');
+                do_settings_sections('webtonative-settings-social');
+                ?>
+                <p>
+                    For adding social login to custom theme page, use Shortcode <b>[webtonative_social_login]</b>
+                </p>
+                <?php
+                submit_button();
+                ?>
+            </form>
+            <script>
+                const facebookEnabled = document.querySelector('[name="wton_facebook_login_enabled"]');
+                const googleEnabled = document.querySelector('[name="wton_google_login_enabled"]');
+                const facebookAppId = document.querySelector('[name="wton_facebook_login_app_id"]');
+                const facebookAppSecret = document.querySelector('[name="wton_facebook_login_app_secret"]');
+                const googleClientId = document.querySelector('[name="wton_google_login_client_id"]');
+                const googleClientSecret = document.querySelector('[name="wton_google_login_client_secret"]');
+
+                function facebookFields() {
+                    if (facebookEnabled.checked) {
+                        facebookAppId.disabled = false;
+                        facebookAppSecret.disabled = false;
+                    } else {
+                        facebookAppId.disabled = true;
+                        facebookAppSecret.disabled = true;
+                    }
+                }
+
+                function googleFields() {
+                    if (googleEnabled.checked) {
+                        googleClientId.disabled = false;
+                        googleClientSecret.disabled = false;
+                    } else {
+                        googleClientId.disabled = true;
+                        googleClientSecret.disabled = true;
+                    }
+                }
+
+                facebookEnabled.addEventListener('change', facebookFields);
+                googleEnabled.addEventListener('change', googleFields);
+                facebookFields();
+                googleFields();
+            </script>
+        </div>
+<?php
+    }
+}

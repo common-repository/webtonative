@@ -1,0 +1,19 @@
+{
+  "name": "wp-plugin",
+  "version": "1.0.0",
+  "description": "=== webtonative === Contributors: webtonative Tags: social login, facebook login, google login, facebook, google, social connect, social network login, social plugin, openID, OAuth Login, User Login, social media login, user registration, social sign in, webtonative. Requires at least: 2.0.2 Tested up to: 6.4 Stable tag: 1.9 License: GPLv2 or later",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build website/scripts/biometric.js --output-path=website/build",
+    "dev": "wp-scripts start website/scripts/biometric.js --output-path=website/build",
+    "format": "prettier --write \"**/*.php\""
+  },
+  "keywords": [],
+  "author": "monster-anshu",
+  "license": "ISC",
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.22.1",
+    "@wordpress/scripts": "^26.19.0",
+    "prettier": "^3.2.4"
+  }
+}

@@ -1,0 +1,207 @@
+.wton-social-wrapper:not(.webtonative-app) .btn-apple {
+  display: none !important;
+}
+.wton-social-wrapper * {
+  box-sizing: border-box;
+  line-height: 25px;
+}
+.btnL {
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent !important;
+  font-size: 14px;
+  width: 200px !important;
+  height: 39px;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  margin-bottom: 4px !important;
+  border-radius: 4px !important;
+  margin: auto;;
+}
+.btn-social {
+  position: relative;
+  padding-left: 44px !important;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-social > :first-child {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  line-height: 34px;
+  font-size: 1.6em;
+  text-align: center;
+  border-right: 1px solid rgba(22, 22, 22, 0.1);
+}
+.btn-social.btn-lg {
+  padding-left: 61px;
+}
+.btn-social.btn-lg > :first-child {
+  line-height: 45px;
+  width: 45px;
+  font-size: 1.8em;
+}
+.btn-social.btn-sm {
+  padding-left: 38px;
+}
+.btn-social.btn-sm > :first-child {
+  line-height: 28px;
+  width: 28px;
+  font-size: 1.4em;
+}
+.btn-social.btn-xs {
+  padding-left: 30px;
+}
+.btn-social.btn-xs > :first-child {
+  line-height: 20px;
+  width: 20px;
+  font-size: 1.2em;
+}
+.btn-facebook {
+  color: #fff !important;
+  background-color: #1877f2;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #1877f2, #1877f2) !important;
+}
+.btn-facebook.active,
+.btn-facebook:active,
+.btn-facebook:focus,
+.btn-facebook:hover,
+.open > .dropdown-toggle.btn-facebook {
+  color: #fff;
+  background-color: #1877f2;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #1877f2, #1877f2) !important;
+}
+.btn-apple.active,
+.btn-apple:active,
+.btn-facebook.active,
+.btn-facebook:active,
+.btn-google.active,
+.btn-google:active,
+.open > .dropdown-toggle.btn-apple,
+.open > .dropdown-toggle.btn-facebook,
+.open > .dropdown-toggle.btn-google {
+  background-image: none;
+}
+.btn-facebook.disabled,
+.btn-facebook.disabled.active,
+.btn-facebook.disabled:active,
+.btn-facebook.disabled:focus,
+.btn-facebook.disabled:hover,
+.btn-facebook[disabled],
+.btn-facebook[disabled].active,
+.btn-facebook[disabled]:active,
+.btn-facebook[disabled]:focus,
+.btn-facebook[disabled]:hover,
+fieldset[disabled] .btn-facebook,
+fieldset[disabled] .btn-facebook.active,
+fieldset[disabled] .btn-facebook:active,
+fieldset[disabled] .btn-facebook:focus,
+fieldset[disabled] .btn-facebook:hover {
+  background-color: #1877f2;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #1877f2, #1877f2) !important;
+}
+.btn-facebook .badge {
+  color: #1877f2;
+  background-color: #fff;
+}
+.btn-facebook-white {
+  color: #000 !important;
+  background-color: #1877f2;
+  border-color: transparent;
+  background-image: linear-gradient(to bottom, #fff, #fff) !important;
+}
+.btn-apple,
+.btn-google {
+  color: #fff !important;
+}
+.btn-facebook-white.active,
+.btn-facebook-white:active,
+.btn-facebook-white:focus,
+.btn-facebook-white:hover,
+.open > .dropdown-toggle.btn-facebook-white {
+  color: #000;
+  background-color: #1877f2;
+  border-color: transparent;
+  background-image: linear-gradient(to bottom, #f8f8f8, #f8f8f8) !important;
+}
+.btn-google {
+  text-decoration: none;
+  background: #fff !important;
+  background: linear-gradient(90deg, #fff 38px, #4f71e8 5%) !important;
+  border-color: #4f71e8 !important;
+  border-bottom-width: thin !important;
+}
+.btn-google .social-login-icon {
+  padding-top: 6px !important;
+  border-right: none;
+}
+.btn-google.disabled,
+.btn-google.disabled.active,
+.btn-google.disabled:active,
+.btn-google.disabled:focus,
+.btn-google.disabled:hover,
+.btn-google[disabled],
+.btn-google[disabled].active,
+.btn-google[disabled]:active,
+.btn-google[disabled]:focus,
+.btn-google[disabled]:hover,
+fieldset[disabled] .btn-google,
+fieldset[disabled] .btn-google.active,
+fieldset[disabled] .btn-google:active,
+fieldset[disabled] .btn-google:focus,
+fieldset[disabled] .btn-google:hover {
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #fff, #fff) !important;
+}
+.btn-google .badge {
+  color: #fff;
+  background-color: #fff;
+}
+.btn-apple,
+.btn-apple.active,
+.btn-apple.disabled,
+.btn-apple.disabled.active,
+.btn-apple.disabled:active,
+.btn-apple.disabled:focus,
+.btn-apple.disabled:hover,
+.btn-apple:active,
+.btn-apple:focus,
+.btn-apple:hover,
+.btn-apple[disabled],
+.btn-apple[disabled].active,
+.btn-apple[disabled]:active,
+.btn-apple[disabled]:focus,
+.btn-apple[disabled]:hover,
+.open > .dropdown-toggle.btn-apple,
+fieldset[disabled] .btn-apple,
+fieldset[disabled] .btn-apple.active,
+fieldset[disabled] .btn-apple:active,
+fieldset[disabled] .btn-apple:focus,
+fieldset[disabled] .btn-apple:hover {
+  background-color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #000, #000) !important;
+}
+.btn-apple.active,
+.btn-apple:active,
+.btn-apple:focus,
+.btn-apple:hover,
+.open > .dropdown-toggle.btn-apple {
+  color: #fff;
+}
+.btn-apple .badge {
+  color: #000;
+  background-color: #fff;
+}
+.social-login-icon {
+  display: flex;
+  align-items: center;
+}
